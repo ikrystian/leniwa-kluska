@@ -32717,6 +32717,17 @@ select {
           animation: bounce 1s infinite;
 }
 
+.add-training-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 64px;
+  height: 64px;
+  background-color: #0099ff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

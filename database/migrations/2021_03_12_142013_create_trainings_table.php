@@ -17,8 +17,8 @@ class CreateTrainingsTable extends Migration
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->index();
-            $table->date('training_date');
-            $table->string('name', 255)->default( Carbon::now()->ToString());
+            $table->date('training_date')->default( Carbon::now()->toDateString());
+            $table->string('name', 255)->default( Carbon::now()->toDateString());
             $table->timestamps();
         });
     }
