@@ -1,3 +1,6 @@
+<script>
+    console.log('lorem ipsum');
+</script>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
