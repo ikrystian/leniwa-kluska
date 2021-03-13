@@ -18,7 +18,7 @@ class Dashboard extends Component
     }
 
     public function mount() {
-        $this->myTrainings = Training::all();
+        $this->myTrainings = Training::orderBy("created_at", "desc")->get();
     }
 
     public function createEmptyTraining() {

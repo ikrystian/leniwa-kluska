@@ -9,7 +9,7 @@
         {{ $total }}
         <h3>Dodaj ćwiczenie</h3>
 
-    <form action="" wire:submit.prevent="addSeries">
+    <form action="" wire:submit.prevent="addSeries({{$training->id}})">
         <select name="exercise_id" id="exercise_id" wire:model="exercise_types_id" required>
             <option value="">------</option>
             @foreach($exercisesTypes as $exercise)
@@ -31,3 +31,15 @@
     @endif
 
 </div>
+<script>
+    setTimeout(function() {
+        const list = document.getElementById('exercise_id');
+
+        if(localStorage.getItem('list')) {
+            list.value = localStorage.getItem('list');
+        }
+        list.addEventListener('change', (el) => {
+            localStorage.setItem('list', el.target.value);
+        })
+    }, 1000)
+</script>

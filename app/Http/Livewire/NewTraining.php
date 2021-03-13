@@ -46,12 +46,12 @@ class NewTraining extends Component
     }
 
 
-    public function addSeries(Request $request) {
+    public function addSeries($id) {
         Exercise::create([
-            'training_id' => '2',
+            'training_id' => $id,
             'user_id' => Auth::id(),
             'exercise_types_id' => $this->exercise_types_id,
-            'reps' => '12',
+            'reps' => $this->reps,
             'weight' => $this->weight
         ]);
 

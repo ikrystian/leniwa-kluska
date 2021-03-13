@@ -15,6 +15,7 @@ class ExerciseType extends Seeder
     public function run()
     {
         DB::table('exercise_types')->insert([
+//            dzien pierwszy
             ['name' => 'Wyciskanie sztangi na płaskiej'],
             ['name' => 'Wyciskanie hantelek na ławce ze skosem dodatnim'],
             ['name' => 'Rozpiętki na bramie'],
@@ -25,6 +26,14 @@ class ExerciseType extends Seeder
             ['name' => 'Gryf łamany na modlitewniku'],
             ['name' => 'Uginanie ramion z hantelką oburącz'],
             ['name' => 'Trzymanie ketli w pozycji stojącej'],
+//            dzien drugi
+            ['name' => 'Podciąganie na drążku'],
+            ['name' => 'Przyciąganie linki na siedząco'],
+            ['name' => 'Martwy ciąg'],
+            ['name' => 'Dipy na poręczach'],
+            ['name' => 'Prostowanie ramion na wyciągu'],
+            ['name' => 'Przysiad klasyczny'],
+            ['name' => 'łydki'],
         ]);
     }
 }
