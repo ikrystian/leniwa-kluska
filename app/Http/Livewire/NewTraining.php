@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Exercise;
 use App\Models\ExerciseType;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use App\Models\Training;
 use Illuminate\Http\Request;
@@ -13,12 +14,12 @@ class NewTraining extends Component
 {
     public $training;
     public $exercisesTypes;
-    public $training_id;
     public $exercise_types_id;
     public $user_id;
     public $reps;
     public $weight;
     public $series;
+    public $total = 0;
 
     protected $rules = [
         'training_id' => 'required',
@@ -34,17 +35,27 @@ class NewTraining extends Component
     }
 
     public function mount($id) {
+
         $this->exercisesTypes = ExerciseType::all();
         $this->training = Training::find($id);
+
+
+        foreach($this->training->exercises as $ex) {
+            $this->total += $ex->reps * $ex->weight;
+        }
     }
 
 
-    public function addSeries() {
-        $this->validate($this->rules);
-
+    public function addSeries(Request $request) {
         Exercise::create([
-            'training_id' => $this->training_id,
+            'training_id' => '2',
+            'user_id' => Auth::id(),
+            'exercise_types_id' => $this->exercise_types_id,
+            'reps' => '12',
+            'weight' => $this->weight
         ]);
+
+        $this->redirect('#');
     }
 
     public function startTraining($id) {
@@ -55,8 +66,15 @@ class NewTraining extends Component
     }
 
     public function stopTraining($id) {
+        $total = 0;
+        $this->training = Training::find($id);
+        foreach($this->training->exercises as $ex) {
+            $total += $ex->reps * $ex->weight;
+        }
+
         $training = Training::find($id);
         $training->end = Carbon::now();
+        $training->total = $total;
         $training->save();
         $this->redirect('/trainings/' .$id. '/view');
     }

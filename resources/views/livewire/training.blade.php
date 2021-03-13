@@ -3,12 +3,15 @@
     <div>
         Training id: {{ $training->id }}<br>
         Training name: {{ $training->name  }}<br>
-        Training date {{ $training->training_date }}
+        Training date {{ $training->training_date }}<br>
     </div>
-    <h3>Dodaj ćwiczenie</h3>
+    <hr>
+        {{ $total }}
+        <h3>Dodaj ćwiczenie</h3>
 
     <form action="" wire:submit.prevent="addSeries">
-        <select name="exercise_id" id="exercise_id" wire:model="exercise_types_id">
+        <select name="exercise_id" id="exercise_id" wire:model="exercise_types_id" required>
+            <option value="">------</option>
             @foreach($exercisesTypes as $exercise)
                 <option value="{{ $exercise->id }}"> {{ $exercise->name }}</option>
             @endforeach
@@ -20,7 +23,6 @@
         <button type="submit">Zapisz</button>
     </form>
     @endif
-
     @if(!$training->start)
     <button wire:click="startTraining({{ $training->id  }})">Start training</button>
     @endif
