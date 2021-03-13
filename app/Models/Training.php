@@ -14,7 +14,8 @@ class Training extends Model
         'training_date',
         'name',
         'start',
-        'end'
+        'end',
+        'total'
     ];
 
 }

@@ -21,6 +21,7 @@ class CreateTrainingsTable extends Migration
             $table->string('name', 255)->default( Carbon::now()->toDateString());
             $table->dateTime('start')->nullable();
             $table->dateTime('end')->nullable();
+            $table->float('total')->nullable();
             $table->timestamps();
         });
     }
