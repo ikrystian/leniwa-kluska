@@ -14,8 +14,12 @@ class AchievementSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('achivments')->insert([
-            ['name' => 'weight', 'condition' => 'larger_than', 'value' => 10000],
+        DB::table('achievement')->insert([
+            [
+                'name' => 'weight',
+                'achievement_group_id' => 1,
+                'condition' => 'larger_than',
+                'value' => 10000],
         ]);
     }
 }
