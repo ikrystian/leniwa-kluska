@@ -13,6 +13,8 @@ class Training extends Model
         'user_id',
         'training_date',
         'name',
+        'start',
+        'end'
     ];
 
 }

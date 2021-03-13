@@ -19,6 +19,8 @@ class CreateTrainingsTable extends Migration
             $table->foreignId('user_id')->nullable()->index();
             $table->date('training_date')->default( Carbon::now()->toDateString());
             $table->string('name', 255)->default( Carbon::now()->toDateString());
+            $table->dateTime('start')->nullable();
+            $table->dateTime('end')->nullable();
             $table->timestamps();
         });
     }
