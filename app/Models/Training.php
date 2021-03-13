@@ -18,4 +18,8 @@ class Training extends Model
         'total'
     ];
 
+    public function exercises() {
+        return $this->hasMany(Exercise::class);
+    }
+
 }

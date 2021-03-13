@@ -11,8 +11,12 @@ class Exercise extends Model
 
     protected $fillable = [
         'training_id',
-        'exercises_types_id',
+        'exercise_types_id',
         'reps',
         'weight'
     ];
+
+    public function type() {
+        return $this->belongsTo(ExerciseType::class, 'exercise_types_id', 'id');
+    }
 }

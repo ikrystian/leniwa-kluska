@@ -12,4 +12,8 @@ class ExerciseType extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function exercise() {
+        return $this->hasMany(Exercise::class);
+    }
 }

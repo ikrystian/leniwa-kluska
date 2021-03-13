@@ -3,6 +3,7 @@
         @if($myTrainings)
             @foreach($myTrainings as $myTraining)
                 <li>
+                    <a href="/trainings/{{ $myTraining->id }}/view">
                     {{ $myTraining->training_date }}
                     @if($myTraining->name != $myTraining->training_date)
                         <strong> ({{ $myTraining->name  }})</strong>
