@@ -4,8 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\Exercise;
 use App\Models\ExerciseType;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 use App\Models\Training;
+use Illuminate\Http\Request;
 
 class NewTraining extends Component
 {
@@ -43,7 +45,19 @@ class NewTraining extends Component
         Exercise::create([
             'training_id' => $this->training_id,
         ]);
+    }
 
+    public function startTraining($id) {
+        $training = Training::find($id);
+        $training->start = Carbon::now();
+        $training->save();
+        $this->redirect('#');
+    }
 
+    public function stopTraining($id) {
+        $training = Training::find($id);
+        $training->end = Carbon::now();
+        $training->save();
+        $this->redirect('/trainings/' .$id. '/view');
     }
 }

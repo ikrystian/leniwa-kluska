@@ -1,5 +1,5 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-4">
-
+@if($training->start)
     <div>
         Training id: {{ $training->id }}<br>
         Training name: {{ $training->name  }}<br>
@@ -19,4 +19,13 @@
         <input type="number" wire:model="weight"><br>
         <button type="submit">Zapisz</button>
     </form>
+    @endif
+
+    @if(!$training->start)
+    <button wire:click="startTraining({{ $training->id  }})">Start training</button>
+    @endif
+    @if($training->start && !$training->stop)
+        <button wire:click="stopTraining({{ $training->id  }})">Stop training</button>
+    @endif
+
 </div>
