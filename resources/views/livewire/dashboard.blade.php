@@ -9,7 +9,7 @@
             @foreach($myTrainings as $myTraining)
                 <li>
 
-                    <a class="p-2 m-1 bg-white text-sm inline-block rounded-lg"
+                    <a class="p-2 m-1 text-sm inline-block rounded-lg @if($myTraining->archive_training)pointer-events-none bg-gray-50 cursor-not-allowed  @else bg-white @endif"
                        @if($myTraining->end)
                        href="/trainings/{{ $myTraining->id }}/view"
                        @else

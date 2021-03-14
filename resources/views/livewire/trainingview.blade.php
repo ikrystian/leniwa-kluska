@@ -3,6 +3,8 @@
     Training name: {{ $training->name  }}<br>
     Training date {{ $training->training_date }}
     <hr>
+    <h2>Total training weight: <strong>{{ $training->total / 1000 }}ton</strong> ({{ $training->total }}kg)</h2>
+    <hr>
     <h3>Trainings list</h3>
     <table style="width: 100%" class=" 	table-auto border-separate border border-blue-800">
         <thead>
