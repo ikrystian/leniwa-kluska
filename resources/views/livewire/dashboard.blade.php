@@ -73,14 +73,3 @@
         </div>
         @endif
     </div>
-
-    <script>
-        let stats =  document.querySelector('#full-size-stats');
-        document.querySelector('#showStats').addEventListener('click', function () {
-            stats.style.display = 'flex';
-        });
-
-        stats.addEventListener('click', function () {
-            stats.style.display = 'none';
-        })
-    </script>

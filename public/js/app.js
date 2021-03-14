@@ -3807,6 +3807,13 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 document.addEventListener("livewire:load", function (event) {
   turbolinks.start();
 });
+var stats = document.querySelector('#full-size-stats');
+document.querySelector('#showStats').addEventListener('click', function () {
+  stats.style.display = 'flex';
+});
+stats.addEventListener('click', function () {
+  stats.style.display = 'none';
+});
 
 /***/ }),
 

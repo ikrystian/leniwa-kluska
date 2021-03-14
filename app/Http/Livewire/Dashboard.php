@@ -23,7 +23,6 @@ class Dashboard extends Component
         $date = Carbon::parse(Auth::user()->created_at);
         $now = Carbon::now();
         $this->diff = $date->diffInDays($now);
-
         $this->myTrainings = Training::where('user_id', Auth::id())->orderBy('training_date', 'desc')->get();
     }
 
@@ -32,7 +31,7 @@ class Dashboard extends Component
         $training = new Training;
         $training->user_id = Auth::id();
         $training->training_date = Carbon::now()->toDateString();
-        $training->name = Carbon::now()->toDateString();
+        $training->name = Carbon::now()->locale('pl')->dayName;
         $training->archive_training = 0;
         $training->save();
 
