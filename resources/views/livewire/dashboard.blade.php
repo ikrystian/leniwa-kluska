@@ -29,8 +29,6 @@
         </ul>
         <div>
             <button class="add-training-button" wire:click="createEmptyTraining">
-            <?xml version="1.0" encoding="iso-8859-1"?>
-            <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
 <path style="fill:#1BCEB8;" d="M496,248c0,136.8-111.2,248-248,248S0,384.8,0,248S111.2,0,248,0S496,111.2,496,248z"/>
@@ -42,4 +40,4 @@
             </button>
         </div>
     @endif
-</div>
+
