@@ -26,7 +26,7 @@ class Dashboard extends Component
     {
         $training = new Training;
         $training->user_id = Auth::id();
-        $training->date = Carbon::now()->toDateString();
+        $training->training_date = Carbon::now()->toDateString();
         $training->name = Carbon::now()->toDateString();
         $training->save();
 
