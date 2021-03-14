@@ -20,5 +20,6 @@ Route::get('/clear', function() {
     Artisan::call('config:cache');
     Artisan::call('view:cache');
     Artisan::call('key:generate');
+    Artisan::call('storage:link');
     return redirect('/login');
 });
