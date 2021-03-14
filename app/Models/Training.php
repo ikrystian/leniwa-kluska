@@ -15,7 +15,8 @@ class Training extends Model
         'name',
         'start',
         'end',
-        'total'
+        'total',
+        'archive_training'
     ];
 
     public function exercises() {

@@ -33,6 +33,7 @@ class Dashboard extends Component
         $training->user_id = Auth::id();
         $training->training_date = Carbon::now()->toDateString();
         $training->name = Carbon::now()->toDateString();
+        $training->archive_training = 0;
         $training->save();
 
         $lastTraining = Training::latest()->first();
