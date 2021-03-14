@@ -11,6 +11,7 @@ class Dashboard extends Component
 {
 
     public $myTrainings;
+    public $diff;
 
     public function render()
     {
@@ -19,7 +20,11 @@ class Dashboard extends Component
 
     public function mount()
     {
-        $this->myTrainings = Training::orderBy('training_date', 'desc')->get();
+        $date = Carbon::parse(Auth::user()->created_at);
+        $now = Carbon::now();
+        $this->diff = $date->diffInDays($now);
+
+        $this->myTrainings = Training::where('user_id', Auth::id())->orderBy('training_date', 'desc')->get();
     }
 
     public function createEmptyTraining()
@@ -32,10 +37,5 @@ class Dashboard extends Component
 
         $lastTraining = Training::latest()->first();
         return redirect('trainings/' . $lastTraining->id);
-    }
-
-    public function openModal()
-    {
-        $this->emit('show');
     }
 }
