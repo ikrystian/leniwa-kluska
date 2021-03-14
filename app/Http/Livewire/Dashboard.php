@@ -19,13 +19,15 @@ class Dashboard extends Component
 
     public function mount()
     {
-        $this->myTrainings = Training::orderBy("created_at", "desc")->get();
+        $this->myTrainings = Training::orderBy('created_at', 'desc')->get();
     }
 
     public function createEmptyTraining()
     {
         $training = new Training;
         $training->user_id = Auth::id();
+        $training->date = Carbon::now()->toDateString();
+        $training->name = Carbon::now()->toDateString();
         $training->save();
 
         $lastTraining = Training::latest()->first();
