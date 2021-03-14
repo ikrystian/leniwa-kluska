@@ -32728,6 +32728,59 @@ select {
   overflow: hidden;
 }
 
+#full-size-stats {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 1rem 1.8rem;
+  background: url('/storage/images/stats-bg.jpg');
+  background-size: cover;
+  z-index: 10;
+}
+
+#full-size-stats::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 11;
+  align-items: center;
+}
+
+#full-size-stats > div {
+  position: relative;
+  z-index: 12;
+}
+
+#full-size-stats h1 {
+  color: #fff;
+  font-size: 2.3em;
+  margin-bottom: 1.5rem;
+}
+
+#full-size-stats h2 {
+  color: #fff;
+  font-size: 2.5em;
+  margin-bottom: 2rem;
+}
+
+#full-size-stats h2 span {
+  font-size: 0.5em;
+  display: block;
+}
+
+#full-size-stats h3 {
+  color: #fff;
+  font-size: 2em;
+  margin-bottom: 2rem;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -192187,4 +192240,5 @@ select {
             animation: bounce 1s infinite;
   }
 }
+
 

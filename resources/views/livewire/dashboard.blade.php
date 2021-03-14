@@ -1,15 +1,22 @@
+<button id="showStats"
+        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+    Show user stats
+</button>
+
+<aside class="full-size-stats" id="full-size-stats">
+    <div>
+        <h1>Gratulacje, {{ Auth::user()->name }}!</h1>
+        <h2>Przerzuciłeś<br><strong>{{ $myTrainings->sum('total') / 1000 }}</strong> ton<br><span> żelastwa w trakcie</span></h2>
+        <h3><strong>{{ $myTrainings->count() }}</strong> treningów<br>od <strong>{{ $diff }}</strong> dni</h3>
+    </div>
+</aside>
+
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-4">
     @if($myTrainings)
-
-      <strong>  {{ $myTrainings->count() }}</strong> treningów od  <strong>{{ $diff }} dni</strong><br>
-        Ilość podniesionych ciężarów <strong>{{ $myTrainings->sum('total') / 1000 }}</strong> ton
-        ({{ $myTrainings->sum('total')  }}kg)
         <hr>
         <ul class="flex flex-wrap">
-
             @foreach($myTrainings as $myTraining)
                 <li>
-
                     <a class="p-2 m-1 text-sm inline-block rounded-lg @if($myTraining->archive_training)pointer-events-none bg-gray-50 cursor-not-allowed  @else bg-white @endif"
                        @if($myTraining->end)
                        href="/trainings/{{ $myTraining->id }}/view"
@@ -59,5 +66,17 @@
                     <g></g></svg>
             </button>
         </div>
-@endif
+    @endif
 
+</div>
+
+<script>
+    const stats =  document.querySelector('#full-size-stats');
+    document.querySelector('#showStats').addEventListener('click', function () {
+        stats.style.display = 'flex';
+    });
+
+    stats.addEventListener('click', function () {
+        stats.style.display = 'none';
+    })
+</script>
