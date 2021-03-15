@@ -80,4 +80,10 @@ class NewTraining extends Component
         $training->save();
         $this->redirect('/trainings/' .$id. '/view');
     }
+
+    public function removeTraining($id) {
+        $training = Training::find($id);
+        $training->delete();
+        $this->redirect('/dashboard');
+    }
 }
