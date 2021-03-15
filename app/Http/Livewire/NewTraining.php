@@ -15,7 +15,7 @@ class NewTraining extends Component
 {
     public $training;
     public $exercisesTypes;
-    public $exercise_types_id;
+    public $exercise_type_id;
     public $user_id;
     public $reps;
     public $weight;
@@ -52,7 +52,7 @@ class NewTraining extends Component
         Exercise::create([
             'training_id' => $id,
             'user_id' => Auth::id(),
-            'exercise_type_id' => $this->exercise_types_id,
+            'exercise_type_id' => $this->exercise_type_id,
             'reps' => $this->reps,
             'weight' => $this->weight
         ]);

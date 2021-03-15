@@ -12,7 +12,7 @@ class Exercise extends Model
     protected $fillable = [
         'training_id',
         'user_id',
-        'exercise_types_id',
+        'exercise_type_id',
         'reps',
         'weight'
     ];

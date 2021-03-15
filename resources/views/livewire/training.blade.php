@@ -18,7 +18,8 @@
                     </nav>
                 </div>
             @endif
-            <select name="exercise_id" id="exercise_id" wire:model="exercise_types_id" required>
+            <input type="hidden">
+            <select name="exercise_id" id="exercise_id" wire:model="exercise_type_id" required>
                 <option value="">------</option>
                 @foreach($exercisesTypes as $exercise)
                     <option id="d-{{ $exercise->body_part_id  }}" value="{{ $exercise->id }}"> {{ $exercise->name }}</option>
