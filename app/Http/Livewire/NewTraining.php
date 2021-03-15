@@ -26,7 +26,7 @@ class NewTraining extends Component
     protected $rules = [
         'training_id' => 'required',
         'user_id'=> 'required',
-        'exercise_types_id' => 'required',
+        'exercise_type_id' => 'required',
         'reps' => 'required',
         'weight' => 'required'
     ];
@@ -52,7 +52,7 @@ class NewTraining extends Component
         Exercise::create([
             'training_id' => $id,
             'user_id' => Auth::id(),
-            'exercise_types_id' => $this->exercise_types_id,
+            'exercise_type_id' => $this->exercise_types_id,
             'reps' => $this->reps,
             'weight' => $this->weight
         ]);
