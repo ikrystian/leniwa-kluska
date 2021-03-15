@@ -16,4 +16,8 @@ class ExerciseType extends Model
     public function exercise() {
         return $this->hasMany(Exercise::class);
     }
+
+    public function bodyPart() {
+        return $this->belongsTo(BodyPart::class, 'body_parts_id', 'id');
+    }
 }

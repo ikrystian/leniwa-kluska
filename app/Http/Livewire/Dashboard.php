@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\BodyPart;
 use App\Models\Training;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,7 @@ class Dashboard extends Component
 
     public $myTrainings;
     public $diff;
+    public $part;
 
     public function render()
     {
@@ -20,6 +22,7 @@ class Dashboard extends Component
 
     public function mount()
     {
+        $this->part = BodyPart::find(1);
         $date = Carbon::parse(Auth::user()->created_at);
         $now = Carbon::now();
         $this->diff = $date->diffInDays($now);

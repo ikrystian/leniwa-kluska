@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\BodyPart;
 use App\Models\Exercise;
 use App\Models\ExerciseType;
 use Illuminate\Support\Carbon;
@@ -20,6 +21,7 @@ class NewTraining extends Component
     public $weight;
     public $series;
     public $total = 0;
+    public $parts;
 
     protected $rules = [
         'training_id' => 'required',
@@ -38,7 +40,7 @@ class NewTraining extends Component
 
         $this->exercisesTypes = ExerciseType::all();
         $this->training = Training::find($id);
-
+        $this->parts = BodyPart::all();
 
         foreach($this->training->exercises as $ex) {
             $this->total += $ex->reps * $ex->weight;

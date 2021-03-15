@@ -18,6 +18,6 @@ class Exercise extends Model
     ];
 
     public function type() {
-        return $this->belongsTo(ExerciseType::class, 'exercise_types_id', 'id');
+        return $this->belongsTo(ExerciseType::class, 'exercise_type_id', 'id');
     }
 }

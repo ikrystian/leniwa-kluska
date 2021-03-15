@@ -32781,6 +32781,41 @@ select {
   margin-bottom: 2rem;
 }
 
+select, input {
+  max-width: 100%;
+}
+
+.body-parts-wrapper {
+  max-width: 100%;
+  overflow: auto;
+  margin-bottom: 0.5rem;
+}
+
+.body-parts {
+  display: flex;
+}
+
+.body-parts button {
+  order: 0;
+}
+
+.body-parts button.active {
+  order: -1;
+  color: #fff;
+  background-color: #0099ff;
+}
+
+.body-parts button  {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  margin: 0.25rem;
+  white-space: nowrap;
+  display: inline-block;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -192240,5 +192275,4 @@ select {
             animation: bounce 1s infinite;
   }
 }
-
 

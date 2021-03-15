@@ -13,10 +13,7 @@
             </div>
         </aside>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-4">
-
-
             <ul class="flex flex-wrap">
-
                 @foreach($myTrainings as $myTraining)
                     <li>
 
@@ -73,3 +70,15 @@
         </div>
         @endif
     </div>
+
+
+    <script>
+        let stats =  document.querySelector('#full-size-stats');
+        document.querySelector('#showStats').addEventListener('click', function () {
+            stats.style.display = 'flex';
+        });
+
+        stats.addEventListener('click', function () {
+            stats.style.display = 'none';
+        })
+    </script>
