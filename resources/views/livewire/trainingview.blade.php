@@ -1,8 +1,7 @@
 <div>
-    Training id: {{ $training->id }}<br>
     Training name: {{ $training->name  }}<br>
-    Training date {{ $training->training_date }}
-    <hr>
+    Training date {{ $training->training_date }}<hr>
+    Time: {{ $time }}<hr>
     <h2>Total training weight: <strong>{{ $training->total / 1000 }}ton</strong> ({{ $training->total }}kg)</h2>
     <hr>
     <h3>Trainings list</h3>
