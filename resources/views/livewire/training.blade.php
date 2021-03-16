@@ -50,28 +50,4 @@
     </div>
 </div>
 <script>
-    setTimeout(function () {
-        const list = document.getElementById('exercise_id');
-
-        if (localStorage.getItem('list')) {
-            list.value = localStorage.getItem('list');
-        }
-        list.addEventListener('change', (el) => {
-            localStorage.setItem('list', el.target.value);
-        })
-
-    }, 1000)
-
-    $(document).ready(() => {
-        $('.body-parts button').on('click', function () {
-            $('.body-parts button').removeClass('active');
-            $(this).addClass('active');
-            let id = $(this).attr('data-part');
-            $('#exercise_id').val('')
-            $('option').show()
-            $(`option:not(#d-${id})`).hide();
-
-        })
-
-    })
 </script>
